@@ -2,7 +2,12 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="{ name: `About`, params: { user: 'Hritik' } }"
+        >About</router-link
+      >
+      |
+      <router-link :to="{ path: '/messages' }">Messages Feed</router-link> |
+      <router-link :to="{ path: '/message' }">Message</router-link>
     </div>
     <router-view />
   </div>

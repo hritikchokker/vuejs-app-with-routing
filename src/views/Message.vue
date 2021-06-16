@@ -1,16 +1,26 @@
 <template>
   <div>
-    <p>{{ content }}</p>
+    <p>Message content: {{ message.content }}</p>
+    <router-link :to="{ name: 'messageAuthor', params: { message } }"
+      >Author</router-link
+    >
+    |
+    <router-link :to="{ name: 'messageInfo', params: { message } }"
+      >Info</router-link
+    >
+    <router-view />
   </div>
 </template>
 <script>
-import Vue from "vue";
-export default Vue.extend({
+export default {
   props: {
-    content: {
-      default: "",
+    id: {
       type: String,
     },
+    message: {
+      default: null,
+      type: Object,
+    },
   },
-});
+};
 </script>
